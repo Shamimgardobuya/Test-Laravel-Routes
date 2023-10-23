@@ -15,4 +15,5 @@ class UserController extends Controller
 
         return view('users.show', compact('user'));
     }
+    
 }

@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Log;
 |
 */
 
-Route::middleware('auth:sanctum')->prefix('/v1')->group(function()  //using v1 as api comes automatically
+Route::middleware('log')->prefix('/v1')->group(function()  //using v1 as api comes automatically
 {
     Route::get('/user',function(Request $request)
     {
@@ -28,6 +28,7 @@ Route::middleware('auth:sanctum')->prefix('/v1')->group(function()  //using v1 a
         Route::resource('/tasks',TaskController::class); 
 
     // });
+    Route::post('task/bulk',[TaskController::class,'bulkStore'])->name('bulk');//json objects
 });
 
    
